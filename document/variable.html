@@ -1,0 +1,129 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>値・式・文・ブロック</title>
+        <meta name="description" content="値・式・文・ブロックについて説明します。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                                <span class="text-color">変数</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+                        <p>変数とは、特定の番号のメモリに対し、一時的に名前を付けたものである。変数は定数と違い、代入によって値を変更できる。</p>
+                        <h2>作成</h2>
+                        <p>作成するには下記の文を記述する。この文は関数内で使用できる。</p>
+<pre class="line-numbers"><code class="language-bg">memory[ 番号 ] name 名前 = 代入する値</code></pre>
+                        <p>この文により、○番のメモリに値が代入され、指定した名前の変数が作成される。</p>
+                        <p>作成する時の番号には<code class="statement-code">0～9999999</code>までの数値、及び<code class="statement-code">auto</code>キーワードを指定できる。<code class="statement-code">auto</code>キーワードを指定した場合、<code class="statement-code">0～9999999</code>以外の任意に指定できない番号で、かつ使用中でない番号が自動で割り振られる。</p>
+                        <h3>命名規則</h3>
+                        <p>名前には半角の小文字英字( a-z )、またはアンダースコア( _ )を使用できる。ただし、代入する値が論理値の場合は接頭辞を付けなければならない。</p>
+            
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                    
+                                <thead>
+                                <tr>
+                                <th>代入する値</th><th>接頭辞</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>論理値</td>
+                                <td>
+                                is_, are_, can_, has_, have_, exist_, exists_, should_<br>
+                                のいずれかを付ける。
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td>論理値以外</td>
+                                <td>不要</td>
+                                </tr>
+                                </tbody>
+            
+                            </table>
+                        </div>
+                        <p>論理値を代入する際に接頭辞を付けない。または、論理値以外を代入する際に接頭辞を付けた場合はエラーとなる。</p>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ 0 ] name one = 1
+    memory[ 1 ] name string = "string"
+    memory[ auto ] name is_sample  = true
+    
+    // 接頭辞がないためエラー
+    memory[ 2 ] name sample = true
+</code></pre>
+                        <h3>有効範囲</h3>
+                        <p>作成した変数の有効範囲は、文を記述した関数内となる。そのため、別々の関数内であれば同じ名前を使用することができる。</p>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ auto ] name a = "a1"
+
+function other_function()
+    memory[ auto ] name a = "a2"
+</code></pre>
+                        <h2>参照</h2>
+                        <p>参照するには、<code class="statement-code">名前</code>を記述する。</p>
+                        <p>変数は式内で参照でき、評価されるとメモリに格納している値に置き換わる。</p>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ 0 ] name a = 0
+    memory[ 1 ] name b = 0
+    
+    memory[ auto ] name c = a + b
+    memory[ auto ] name is_equal = a == b
+    
+    // "c : 3"
+    // "a == b : false" を出力
+    show( "c : " . c )
+    show( "a == b : " . is_equal )
+</code></pre>
+                        <h2>代入</h2>
+                        <p>代入するには下記の文を記述する。</p>
+<pre class="line-numbers"><code class="language-bg">名前 = 代入する値</code></pre>
+                        <p>この文により、名前を付けた○番のメモリに値が格納される。</p>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ 0 ] name a = 0
+    a = 100
+    
+    // "a = 100" を出力
+    show( "a = " . a )
+</code></pre>
+                        <h2>仮引数</h2>
+                        <p>変数は関数の仮引数として指定できる。</p>
+                        <p>仮引数として指定する場合、<code class="statement-code">memory[ 番号 ] name 名前</code>と記述する。これにより、その関数を呼び出す時に○番のメモリに実引数が格納され、指定した名前の変数が作成される。</p>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

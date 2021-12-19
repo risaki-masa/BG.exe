@@ -1,0 +1,217 @@
+#bg {
+    $EDITOR_FONT_SIZE   : 14px;
+    $EDITOR_LINE_HEIGHT : 22px;
+    $EDITOR_LINE_COUNT  : 30;
+    $EDITOR_HEIGHT      : $EDITOR_LINE_HEIGHT * $EDITOR_LINE_COUNT;
+    $HEADER_HEIGHT      : 40px;
+    $MENU_HEIGHT        : 20px;
+    $LINE_GUIDE_WIDTH   : 50px;
+
+    #header {
+        height  : $HEADER_HEIGHT;
+        padding : 0 10px;
+
+        .left {
+            width: 100%;
+
+            .title {
+                .text {
+                    padding-left: 7px;
+                    color       : $HEADER_LOGO_COLOR;
+
+                    @include bold_font( 1.8rem );
+                }
+            }
+        }
+
+        .right {
+            .help {
+                position: relative;
+
+                @include z-index( bg-help );
+
+                .button {
+                    padding     : 0 10px;
+                    font-size   : 1.0rem;
+
+                    @include size( 20px );
+                }
+                
+                .items {
+                    width   : 200px;
+                    display : none;
+                    position: absolute;
+                    
+                    @include top_and_right( 100%, 0 );
+                    @include z-index( bg-help-items );
+
+                    li {
+                        &:not(:last-child) {
+                            border-bottom: solid 1px #ddd;
+                        }
+                    }
+    
+                    .item {
+                        padding: 7px 0 7px 30px;
+                        @include bold_font( 1.2rem );
+                    }
+                }
+
+                &:hover {
+                    .items {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    #main {
+        .menu {
+            @mixin item_common {
+                height      : $MENU_HEIGHT;
+                font-size   : 1.1rem;
+
+                .text {
+                    padding-left: 0.5em;
+                }
+            }
+
+            background-color: $THEME_BACKGROUND_COLOR_1;
+            justify-content : space-between;
+
+            .left {
+                .item {
+                    padding     : 0 20px;
+                    border-right: solid 1px #ddd;
+
+                    @include item_common;
+                }
+            }
+
+            .right {
+                .item {
+                    width: 20px;
+
+                    @include item_common;
+                }
+            }
+        }
+
+        .content {
+            @mixin font_common {
+                font-size   : $EDITOR_FONT_SIZE; 
+                line-height : $EDITOR_LINE_HEIGHT;
+                font-family : 'Consolas', 'Courier New', 'Courier', monospace;
+            }
+
+            height      : $EDITOR_HEIGHT;
+            position    : relative;
+            background  : #efefef;
+
+            .line-guide {
+                width       : $LINE_GUIDE_WIDTH;
+                min-width   : $LINE_GUIDE_WIDTH;
+                padding     : 5px 5px 0 0;
+                overflow    : hidden;
+                border-right: solid 1px #aaa;
+
+                .inner {
+                    $two_lines_height: $EDITOR_LINE_HEIGHT * 2;
+
+                    height: $EDITOR_HEIGHT + $two_lines_height;
+
+                    .number {
+                        font-weight : bold;
+                        text-align  : right;
+                        user-select : none;
+
+                        @include font_common;
+                    }
+                }
+            }
+
+            .input-area {
+                width           : 100%;
+                padding         : 5px;
+                border          : none;
+                resize          : none;
+                background-color: transparent;
+
+                // TODO: iOSでどのような挙動をするか確認すること
+                color           : transparent;
+                caret-color     : #333;
+
+                @include font_common;
+                @include z-index( bg-input-area );
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::selection {
+                    background-color: #acf;
+                }
+            }
+
+            .input-view {
+                width           : calc( 100% -  #{ $LINE_GUIDE_WIDTH } );
+                height          : inherit;
+                position        : absolute;
+                padding         : 5px;
+                pointer-events  : none;
+                color           : #333;
+
+                @include top_and_left( 0, $LINE_GUIDE_WIDTH );
+                @include font_common;
+                @include z-index( bg-input-view );
+            }
+        }
+
+        .output-area {
+            height      : 400px;
+            padding     : 10px;
+            background  : #333;
+            font-size   : 14px;
+            color       : #fff;
+            position    : relative;
+        }
+
+        .horizontal {
+            $editor_height  : calc( 100vh - #{ $HEADER_HEIGHT + $MENU_HEIGHT } );
+            $editor_ratio   : 70%;
+
+            display: flex;
+
+            .content {
+                height  : $editor_height;
+                flex    : 1 1 $editor_ratio;
+            }
+
+            .output-area {
+                height  : $editor_height;
+                flex    : 1 1 ( 100% - $editor_ratio );
+            }
+        }
+
+        .comment-font {
+            color: #61b484;
+        }
+
+        .function-name-font {
+            color: #f37878;
+        }
+
+        .string-font {
+            color: #e39024;
+        }
+
+        .keyword-font {
+            color: #5b97ed;
+        }
+    }
+}
+
+#bg-load {
+    display: none;
+}

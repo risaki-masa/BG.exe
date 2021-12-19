@@ -1,0 +1,14 @@
+.article {
+    padding: 30px;
+    
+    @include media_as_phone {
+        padding: 20px 10px;
+    }
+
+    > {
+        @import 
+            "article-header",
+            "article-content"
+        ;
+    }
+}

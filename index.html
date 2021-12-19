@@ -1,0 +1,160 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>BG.exe</title>
+        <meta name="description" content="BG言語の実行環境です。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style-bg.css">
+        
+        <script type="text/javascript" src="assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="assets/js/pc/element-extensions-pc.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/smart-device/element-extensions-sd.js"></script> -->
+
+        <script type="text/javascript" src="assets/js/bg/bg-utilities.js"></script>
+        <script type="text/javascript" src="assets/js/bg/extension/bg-array-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/bg/extension/bg-error-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/bg/extension/bg-html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/bg/extension/bg-number-extensions.js"></script>
+        <script type="text/javascript" src="assets/js/bg/extension/bg-string-extensions.js"></script>
+
+        <script type="text/javascript" src="assets/js/bg/editor/bg-decoration-info-adders.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/bg-editor-creator.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/bg-input-decorator.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/bg-line-guide-creator.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/bg-menu-event-registerer.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/input-area/bg-inpur-area-controllers.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/input-area/bg-input-area-event-registerer.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/input-area/bg-input-area-key-event-registerer.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/input-area/bg-input-area-revision-manager.js"></script>
+        <script type="text/javascript" src="assets/js/bg/editor/input-area/bg-input-area-scroll-adjuster.js"></script>
+
+        <script type="text/javascript" src="assets/js/bg/language/bg-block-controller.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-built-in-functions.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-checkers.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-constant-manager.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-evaluators.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-executors.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-expression.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-function-manager.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-function.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-input-manager.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-memory-manager.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-message-list.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-operands.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-operators.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-output-controller.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-parsers.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-program-registerer.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-selectors.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-statement.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-syntax-tree.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-variable-manager.js"></script>
+        <script type="text/javascript" src="assets/js/bg/language/bg-wait-controller.js"></script>
+    </head>
+    <body class="scroll">
+        <section id="bg">
+            <header id="header" class="theme-color2 flex-v-center ">
+                <div class="left flex-h-center">
+                    <h1 class="title">
+                        <a href="index.html">
+                            <div class="flex-v-center">
+                                <div class="icon">
+                                    <img src="assets/image/icon.png" width="20" height="20">
+                                </div>
+                                <div class="text">BG.exe</div>
+                            </div>
+                        </a>
+                    </h>
+                </div>
+                <div class="right">
+                    <div class="help theme-color1">
+                        <div class="button hover-part pointer flex-center">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <ul class="items list-none">
+                            <li>
+                                <a href="document/bg_language.html" target="_blank">
+                                    <div class="item theme-color1 hover-part">
+                                        <span class="text">BGのドキュメント</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="how-to-use/how-to-use.html" target="_blank">
+                                    <div class="item theme-color1 hover-part">
+                                        <span class="text">BG.exeの使い方</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="sample/samples.html" target="_blank">
+                                    <div class="item theme-color1 hover-part">
+                                        <span class="text">BGのサンプル</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div id="main" role="main">
+                <div class="menu flex">
+                    <ul class="left list-none flex">
+                        <li>
+                            <div class="execute item flex-center theme-color1 hover-part pointer">
+                                <i class="fas fa-play fa-xs" aria-hidden="true"></i><!--
+                             --><span class="text">実行</span><!--
+                         --></div>
+                        </li>
+                        <li>
+                            <label class="load item flex-center theme-color1 hover-part pointer" for="bg-load"><!--
+                                --><i class="fas fa-folder-open fa-sm"></i><!--
+                                --><span class="text">読み込み</span><!--
+                            --><input id="bg-load" type="file" accept=".bg">
+                            </label>
+                        </li>
+                        <li>
+                            <div class="save item flex-center theme-color1 hover-part pointer"><!--
+                                --><i class="fas fa-save fa-sm"></i><!--
+                                --><span class="text">保存</span><!--
+                         --></div>
+                        </li>
+                    </ul>
+                    <ul class="right list-none flex">
+                        <li>
+                            <div class="layout item flex-center theme-color1 hover-part pointer" title="横並び"><!--
+                                --><i class="fas fa-columns"></i><!--
+                         --></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="layout-area">
+                    <div class="content flex">
+                        <div class="line-guide">
+                            <div class="inner"></div>
+                        </div>
+                        <textarea class="input-area scroll" wrap="off" spellcheck="false"></textarea>
+                        <pre class="input-view scroll"></pre>
+                    </div>
+                    <pre class="output-area scroll"></pre>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

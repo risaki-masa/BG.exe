@@ -1,0 +1,64 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>値・式・文・ブロック</title>
+        <meta name="description" content="値・式・文・ブロックについて説明します。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                            <span class="text-color">値・式・文・ブロック</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+                        <h2>値</h2>
+                        <p>値とは、プログラム内で用いるデータである。</p>
+                        <h2>式</h2>
+                        <p>式とは、文の一部を構成する要素である。</p>
+                        <p>式はプログラムを実行する時に評価され、最終的に1つの値となる。式内では「リテラル・演算子・メモリ・変数・定数・関数」を使用できる。</p>
+                        <h3>条件</h3>
+                        <p>条件とは、値が論理値となる式である。</p>
+                        <h2>文</h2>
+                        <p>文とは、処理として実行可能な単位である。文は1行を1つとして数える。</p>
+                        <h2>ブロック</h2>
+                        <p>ブロックとは、1つ以上の文のまとまりである。</p>
+                        <p>ブロックはインデントによって表現され、インデント数により、文がどのブロックに属するか決まる。</p>
+                        <h3>作成</h3>
+                        <p>ブロックを作成するには、ブロックを作成する前の文のインデント数に対し、1つインデントを追加した文を記述する。ただし、前の文がブロックを作成できる機能を有してなければならない。</p>
+<pre class="line-numbers"><code class="language-bg">( ブロックを作成できる )文
+    ブロック
+</code></pre>
+                        <h3>インデント</h3>
+                        <p>インデントとは、行頭に空白を設け、文の開始位置をずらすことである。インデントは半角スペース4つで1つとして数える。</p>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

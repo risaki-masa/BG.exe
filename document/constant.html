@@ -1,0 +1,115 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>定数</title>
+        <meta name="description" content="定数について説明します。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                            <span class="text-color">定数</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+                        <p>定数とは、特定の番号のメモリに対し、一時的に名前を付けたものである。定数は変数と違い、値を変更できない。</p>
+                        <h2>作成</h2>
+                        <p>作成するには下記の文を記述する。この文は関数外で使用できる。</p>
+<pre class="line-numbers"><code class="language-bg">memory[ 番号 ] name 名前 = 代入する値</code></pre>
+                        <p>この文により、○番のメモリに値が代入され、指定した名前の定数が作成される。</p>
+                        <p>作成する時の番号には<code class="statement-code">auto</code>キーワードのみを指定できる。<code class="statement-code">auto</code>キーワードを指定した場合、<code class="statement-code">0～9999999</code>以外の任意に指定できない番号で、かつ使用中でない番号が自動で割り振られる。</p>
+                        <h3>命名規則</h3>
+                        <p>名前には半角大文字英字( A-Z )、またはアンダースコア( _ )を使用できる。ただし、アンダースコアは先頭に用いることができず、また、代入する値が論理値の場合は接頭辞を付けなければならない。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>代入する値</th><th>接頭辞</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>
+                                論理値
+                                </td>
+                                <td>
+                                IS_, ARE_, CAN_, HAS_, HAVE_, EXIST_, EXISTS_, SHOULD_<br>
+                                のいずれかを付ける。
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                論理値以外
+                                </td>
+                                <td>
+                                不要
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>論理値を代入する際に接頭辞を付けない。または、論理値以外を代入する際に接頭辞を付けた場合はエラーとなる。</p>
+<pre class="line-numbers"><code class="language-bg">memory[ auto ] name ONE = 1
+memory[ auto ] name STRING = "string"
+memory[ auto ] name IS_SAMPLE = true
+
+// 接頭辞がないためエラー
+memory[ auto ] name SAMPLE = true
+</code></pre>
+                        <h3>有効範囲</h3>
+                        <p>作成した定数の有効範囲は、文を記述した行以降の文、および全ての関数内となる。</p>
+<pre class="line-numbers"><code class="language-bg">// VALUEが無効
+
+memory[ auto ] name VALUE = "value"
+
+// VALUEが有効
+
+function main()
+    // VALUEが有効
+    
+function test()
+    // VALUEが有効</code></pre>
+                        <h2>参照</h2>
+                        <p>参照するには、<code class="statement-code">名前</code>を記述する。</p>
+                        <p>定数は式内で参照でき、評価されるとメモリに格納している値に置き換わる。</p>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">memory[ auto ] name ONE = 1
+memory[ auto ] name TWO = ONE + ONE
+
+function main()
+    show( ONE )
+    show_two()
+
+function show_two()
+    show( TWO )</code></pre>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

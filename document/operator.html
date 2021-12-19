@@ -1,0 +1,296 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>演算子</title>
+        <meta name="description" content="演算子について説明します。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                            <span class="text-color">演算子</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+                        <p>演算子とは、各演算を表す記号である。演算子は式内で使用できる。</p>
+                        <p>演算子と被演算子( 演算の対象 )は評価されると演算した値を返し、その値と置き換わる。</p>
+                        <h2>種類</h2>
+                        <h3>算術演算子</h3>
+                        <p>算術演算子とは、数値を演算するための演算子である。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>名称</th>
+                                <th>演算子</th>
+                                <th>構文</th>
+                                <th>説明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>加算</td>
+                                <td>+</td>
+                                <td>x + y</td>
+                                <td class="text-left">
+                                <p>xにyを加えた値を返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>減算</td>
+                                <td>-</td>
+                                <td>x - y</td>
+                                <td class="text-left">
+                                <p>xからyを減らした値を返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>乗算</td>
+                                <td>*</td>
+                                <td>x * y</td>
+                                <td class="text-left">
+                                <p>xにyを掛けた値を返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>除算</td>
+                                <td>/</td>
+                                <td>x / y</td>
+                                <td class="text-left">
+                                <p>xをyで割った値を返す。</p>
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+        
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show( 6 + -3 )
+    show( 6 - -3 )
+    show( 6 * -3 )
+    show( 6 / -3 )
+</code></pre>
+                        <h3>論理演算子</h3>
+                        <p>論理演算子とは、論理値を演算するための演算子である。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>名称</th>
+                                <th>演算子</th>
+                                <th>構文</th>
+                                <th>説明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>論理積</td>
+                                <td> and </td>
+                                <td>x and y</td>
+                                <td class="text-left">
+                                <p>xとyがtrueの場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>論理和</td>
+                                <td> or </td>
+                                <td>x or y</td>
+                                <td class="text-left">
+                                <p>xとyの片方、または両方がtrueの場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show( true and true )
+    show( true and false )
+    show( false and false )
+
+    show( true or true )
+    show( true or false )
+    show( false or false )
+</code></pre>
+                        <h3>文字列演算子</h3>
+                        <p>文字列演算子とは、文字列を演算するための演算子である。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>名称</th>
+                                <th>演算子</th>
+                                <th>構文</th>
+                                <th>説明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>連結</td>
+                                <td> . </td>
+                                <td>x . y</td>
+                                <td class="text-left">
+                                <p>xとyを連結した値を返す。</p>
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show( "Hello " . "world." )
+</code></pre>
+                        <h3>比較演算子</h3>
+                        <p>比較演算子とは、値を比較するための演算子である。</p>
+                        <p>「等値演算子」と「非等値演算子」を除く他の演算子は、数値のみでしか比較できない。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>名称</th>
+                                <th>演算子</th>
+                                <th>構文</th>
+                                <th>説明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>等値</td>
+                                <td>==</td>
+                                <td>x == y</td>
+                                <td class="text-left">
+                                <p>xとyが等しい場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>非等値</td>
+                                <td>!=</td>
+                                <td>x != y</td>
+                                <td class="text-left">
+                                <p>xとyが等しくない場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>小なり</td>
+                                <td>&lt;</td>
+                                <td>x &lt; y</td>
+                                <td class="text-left">
+                                <p>xがyより小さい場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>小なりイコール</td>
+                                <td>&lt;=</td>
+                                <td>x &lt;= y</td>
+                                <td class="text-left">
+                                <p>xがyより小さい、または同じ場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>大なり</td>
+                                <td>&gt;</td>
+                                <td>x &gt; y</td>
+                                <td class="text-left">
+                                <p>xがyより大きい場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>大なりイコール</td>
+                                <td>&gt;=</td>
+                                <td>x &gt;= y</td>
+                                <td class="text-left">
+                                <p>xがyより大きい、または同じ場合はtrueを返し、それ以外の場合はfalseを返す。</p>
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show( 100 == 101 )
+    show( "string" == "string" )
+
+    show( 100 != 101 )
+    show( "string" != "string" )
+
+    show( 100 &lt; 101 )
+    show( 100 &lt;= 101 )
+
+    show( 100 &gt; 101 )
+    show( 100 &gt;= 101 )
+</code></pre>
+                        <h2>優先度</h2>
+                        <p>演算子は優先度に合わせて順に評価される。</p>
+                        <p>ただし、同じ優先度の演算子を用いた場合は、左から順に評価される。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                    <tr>
+                                    <th>優先度</th>
+                                    <th>演算子</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td>1</td>
+                                    <td>*, /</td>
+                                    </tr>
+                                    <tr>
+                                    <td>2</td>
+                                    <td>+, -</td>
+                                    </tr>
+                                    <tr>
+                                    <td>3</td>
+                                    <td>.</td>
+                                    </tr>
+                                    <tr>
+                                    <td>4</td>
+                                    <td>==, !=, &lt;, &lt;=, &gt;, &gt;=</td>
+                                    </tr>
+                                    <tr>
+                                    <td>5</td>
+                                    <td>and, or</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tag-list-block">
+                            <div class="flex-v-center">「50 + 5 * 10 == 100」の場合</div>
+                            <ol>
+                                <li>5 * 10 が評価される。 → 50 + 50 == 100</li>
+                                <li>50 + 50 が評価される。 → 100 == 100</li>
+                                <li>100 == 100 が評価される。 → true</li>
+                            </ol>
+                        </div>            
+                    </section>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

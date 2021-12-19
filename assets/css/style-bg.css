@@ -1,0 +1,497 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  width: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Lucida Grande", "Arial", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", "メイリオ", Meiryo, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  width: inherit;
+  height: inherit;
+}
+
+ul, ol, .tag-list-block > ul, .tag-list-block > ol {
+  list-style-position: inside;
+  line-height: 1.8;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul > ul {
+  padding-left: 28px;
+  list-style-type: circle;
+}
+
+a {
+  color: #5385cf;
+  text-decoration: none;
+  outline: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+p {
+  word-break: break-all;
+}
+
+input {
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 2px 10px;
+  border: solid 2px #999;
+  font-size: 1.4rem;
+}
+
+th {
+  background-color: #ddd;
+}
+
+td {
+  background-color: #fff;
+  text-align: center;
+}
+
+.block {
+  display: block;
+}
+
+.flex, .flex-h-center, .flex-v-center, .flex-column-v-center, .flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-h-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex-v-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-column-v-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.list-none {
+  list-style: none;
+}
+
+.theme-color1 {
+  color: #fff;
+  background-color: #999;
+}
+
+.theme-color2 {
+  color: #fff;
+  background-color: #7EA6E0;
+}
+
+.text-color {
+  color: #333;
+}
+
+.hover-part-color {
+  color: #666;
+  background-color: #ddd;
+}
+
+.current-color {
+  color: #666;
+  background-color: #C6F4C3;
+}
+
+.hover-text-color {
+  color: #ddd;
+}
+
+.hover-text-underline {
+  text-decoration: underline;
+}
+
+.hover-border {
+  border: #ddd solid;
+}
+
+.hover-border-color {
+  border: #C6F4C3 solid;
+}
+
+.hidden {
+  display: none;
+}
+
+.scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.hatena-bookmark-icon::before {
+  content: "B!";
+  font-family: Verdana;
+}
+
+.list-block {
+  padding: 20px 40px 20px 40px;
+  background-color: #fff;
+  border: solid 2px #ccc;
+}
+
+.list-block > li {
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+.tag-list-block {
+  position: relative;
+}
+
+.tag-list-block > div {
+  height: 34px;
+  padding: 0 20px;
+  position: absolute;
+  border: solid 2px #ccc;
+  top: 0;
+  left: 20px;
+  color: #fff;
+  background-color: #999;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.tag-list-block ul, .tag-list-block ol {
+  padding: 52px 40px 20px 40px;
+  background-color: #fff;
+  border: solid 2px #ccc;
+}
+
+.tag-list-block > ul > li {
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+.tag-list-block > ol > li {
+  text-indent: -1.1em;
+  padding-left: 1.1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.no-image {
+  color: #F7FAFC;
+  background-color: #999;
+}
+
+#bg #header {
+  height: 40px;
+  padding: 0 10px;
+}
+
+#bg #header .left {
+  width: 100%;
+}
+
+#bg #header .left .title .text {
+  padding-left: 7px;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#bg #header .right .help {
+  position: relative;
+  z-index: 10;
+}
+
+#bg #header .right .help .button {
+  padding: 0 10px;
+  font-size: 1.0rem;
+  width: 20px;
+  height: 20px;
+}
+
+#bg #header .right .help .items {
+  width: 200px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 11;
+}
+
+#bg #header .right .help .items li:not(:last-child) {
+  border-bottom: solid 1px #ddd;
+}
+
+#bg #header .right .help .items .item {
+  padding: 7px 0 7px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#bg #header .right .help:hover .items {
+  display: block;
+}
+
+#bg #main .menu {
+  background-color: #999;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+#bg #main .menu .left .item {
+  padding: 0 20px;
+  border-right: solid 1px #ddd;
+  height: 20px;
+  font-size: 1.1rem;
+}
+
+#bg #main .menu .left .item .text {
+  padding-left: 0.5em;
+}
+
+#bg #main .menu .right .item {
+  width: 20px;
+  height: 20px;
+  font-size: 1.1rem;
+}
+
+#bg #main .menu .right .item .text {
+  padding-left: 0.5em;
+}
+
+#bg #main .content {
+  height: 660px;
+  position: relative;
+  background: #efefef;
+}
+
+#bg #main .content .line-guide {
+  width: 50px;
+  min-width: 50px;
+  padding: 5px 5px 0 0;
+  overflow: hidden;
+  border-right: solid 1px #aaa;
+}
+
+#bg #main .content .line-guide .inner {
+  height: 704px;
+}
+
+#bg #main .content .line-guide .inner .number {
+  font-weight: bold;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: 'Consolas', 'Courier New', 'Courier', monospace;
+}
+
+#bg #main .content .input-area {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  resize: none;
+  background-color: transparent;
+  color: transparent;
+  caret-color: #333;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: 'Consolas', 'Courier New', 'Courier', monospace;
+  z-index: 1;
+}
+
+#bg #main .content .input-area:focus {
+  outline: none;
+}
+
+#bg #main .content .input-area::-moz-selection {
+  background-color: #acf;
+}
+
+#bg #main .content .input-area::selection {
+  background-color: #acf;
+}
+
+#bg #main .content .input-view {
+  width: calc( 100% -  50px);
+  height: inherit;
+  position: absolute;
+  padding: 5px;
+  pointer-events: none;
+  color: #333;
+  top: 0;
+  left: 50px;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: 'Consolas', 'Courier New', 'Courier', monospace;
+  z-index: 1;
+}
+
+#bg #main .output-area {
+  height: 400px;
+  padding: 10px;
+  background: #333;
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+}
+
+#bg #main .horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#bg #main .horizontal .content {
+  height: calc( 100vh - 60px);
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 70%;
+  flex: 1 1 70%;
+}
+
+#bg #main .horizontal .output-area {
+  height: calc( 100vh - 60px);
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 30%;
+  flex: 1 1 30%;
+}
+
+#bg #main .comment-font {
+  color: #61b484;
+}
+
+#bg #main .function-name-font {
+  color: #f37878;
+}
+
+#bg #main .string-font {
+  color: #e39024;
+}
+
+#bg #main .keyword-font {
+  color: #5b97ed;
+}
+
+#bg-load {
+  display: none;
+}
+
+@media screen and (max-width: 599px) {
+  th, td {
+    padding: 2px 8px;
+    font-size: 1.2rem;
+  }
+  .list-block {
+    padding: 15px 30px 15px 30px;
+  }
+  .tag-list-block > div {
+    height: 28px;
+    padding: 0 15px;
+    left: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  .tag-list-block ul, .tag-list-block ol {
+    padding: 41px 30px 15px 30px;
+  }
+}
+
+/*# sourceMappingURL=../maps/style-bg.css.map */

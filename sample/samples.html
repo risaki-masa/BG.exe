@@ -1,0 +1,345 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>BGのサンプル</title>
+        <meta name="description" content="BGで書かれたプログラムのサンプル集です。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                            <span class="text-color">BGのサンプル</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+<h2>Hello world</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show( "Hello world." )
+</code></pre>
+<h2>Fizz Buzz</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ auto ] name max_number = 40
+    memory[ auto ] name number     = 1
+    
+    while number &lt;= max_number 
+        show_fizz_buzz( number )
+        number = number + 1
+    
+function show_fizz_buzz( memory[ auto ] name number )
+    memory[ auto ] name is_fizz = modulo( number, 3 ) == 0
+    memory[ auto ] name is_buzz = modulo( number, 5 ) == 0
+    
+    if is_fizz and is_buzz 
+        show( "Fizz Buzz" )
+        return
+    
+    if is_fizz
+        show( "Fizz" )
+        return
+    
+    if is_buzz
+        show( "Buzz" )
+        return
+    
+    show( number )
+
+function modulo( memory[ auto ] name dividend, memory[ auto ] name divisor )
+    memory[ auto ] name quotient = dividend / divisor
+    return dividend - quotient * divisor
+</code></pre>
+<h2>階乗</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ auto ] name factorial = calculate_factorial( 5 )
+    show( factorial )
+
+function calculate_factorial( memory[ auto ] name number )
+    if number &lt;= 1
+        return 1
+    
+    return number * calculate_factorial( number - 1 )
+</code></pre>
+<h2>三角形</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show_triangle( 4 )
+    
+function show_triangle( memory[ auto ] name height )
+    memory[ auto ] name line_number = 1
+    
+    while line_number &lt;= height
+        show_line( height, line_number )
+        line_number = line_number + 1
+        
+function show_line( memory[ auto ] name height, memory[ auto ] name line_number )
+    memory[ auto ] name whitespaces = get_whitespaces( height, line_number )
+    memory[ auto ] name symbols     = get_symbols( line_number )
+    
+    show( whitespaces . symbols )
+    
+function get_whitespaces( memory[ auto ] name height, memory[ auto ] name line_number )
+    memory[ auto ] name whitespace_count = height - line_number
+    memory[ auto ] name whitespaces      = ""
+    memory[ auto ] name counter          = 0
+    
+    while counter &lt; whitespace_count 
+        whitespaces = whitespaces . "　"
+        counter     = counter + 1
+    
+    return whitespaces
+
+function get_symbols( memory[ auto ] name line_number )
+    memory[ auto ] name symbol_count = line_number * 2 - 1
+    memory[ auto ] name symbols      = ""
+    memory[ auto ] name counter      = 0
+    
+    while counter &lt; symbol_count
+        symbols = symbols . "△"
+        counter = counter + 1
+    
+    return symbols 
+</code></pre>
+<h2>入力チェック</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    while true
+        if is_pushing_up_key()
+            show( "上キーを押しています。" )
+        if is_pushing_down_key()
+            show( "下キーを押しています。" )
+        if is_pushing_left_key()
+            show( "左キーを押しています。" )
+        if is_pushing_right_key()
+            show( "右キーを押しています。" )
+        if is_clicking()
+            show( "クリックしています。" )
+        if is_touching()
+            show( "タッチしています。" )
+        
+        wait( 10 )
+        clear()
+</code></pre>
+<h2>ハノイの塔</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    hanoi( 3, "左", "中央", "右" )
+
+function hanoi( memory[ auto ] name number, memory[ auto ] name from, memory[ auto ] name to, memory[ auto ] name via )
+    if number &lt;= 0
+        return
+    
+    hanoi( number - 1, from, via, to )
+    show( from . " → " . to )
+    hanoi( number - 1, via, to, from )
+</code></pre>
+<h2>時刻</h2>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ auto ] name hours   = get_hours()
+    memory[ auto ] name minutes = get_minutes()
+    memory[ auto ] name seconds = get_seconds()
+    memory[ auto ] name time    = hours . ":" . minutes . ":" . seconds
+    
+    show( time )
+</code></pre>
+<h2>じゃんけん</h2>
+<pre class="line-numbers"><code class="language-bg">memory[ auto ] name TYPE_ROCK      = 0
+memory[ auto ] name TYPE_SCISSCORS = 1
+memory[ auto ] name TYPE_PAPER     = 2
+memory[ auto ] name TYPE_NONE      = -1
+
+memory[ auto ] name PREVIOUS_LEFT_KEY_INDEX  = 0
+memory[ auto ] name PREVIOUS_UP_KEY_INDEX    = 1
+memory[ auto ] name PREVIOUS_RIGHT_KEY_INDEX = 2
+
+function main()
+    initialize_key_flags()
+    show_description()
+    
+    memory[ auto ] name player_hand_type = TYPE_NONE
+    memory[ auto ] name npc_hand_type    = TYPE_NONE
+    memory[ auto ] name is_won_or_lost   = false
+    
+    while is_won_or_lost == false
+        player_hand_type = TYPE_NONE
+        npc_hand_type    = get_npc_hand_type()
+        
+        while player_hand_type == TYPE_NONE
+            player_hand_type = get_player_hand_type()
+            update_key_flags()
+            wait( 10 )
+        
+        show_each_hands( player_hand_type, npc_hand_type )
+        
+        is_won_or_lost = is_won_or_lost( player_hand_type, npc_hand_type )
+        if is_won_or_lost == false
+            show_drawn()
+    
+    show_won_or_lost( player_hand_type, npc_hand_type )
+    
+function initialize_key_flags()
+    memory[ PREVIOUS_LEFT_KEY_INDEX  ] = false
+    memory[ PREVIOUS_UP_KEY_INDEX    ] = false
+    memory[ PREVIOUS_RIGHT_KEY_INDEX ] = false
+
+function show_description()
+    show( "キーを入力してください。( 左キー: グー, 上キー: チョキ, 右キー: パー )" )
+
+function get_npc_hand_type()
+    return get_random_number( 2 )
+    
+function get_random_number( memory[ auto ] name max_number )
+    return modulo( get_seconds(), max_number + 1 )
+
+function modulo( memory[ auto ] name dividend, memory[ auto ] name divisor )
+    memory[ auto ] name quotient = dividend / divisor
+    return dividend - quotient * divisor
+
+function get_player_hand_type()
+    if is_pushed_left_key()
+        return TYPE_ROCK
+    if is_pushed_up_key()
+        return TYPE_SCISSCORS
+    if is_pushed_right_key()
+        return TYPE_PAPER
+    
+    return TYPE_NONE
+
+function is_pushed_left_key()
+    memory[ auto ] name is_not_pushing_previous = memory[ PREVIOUS_LEFT_KEY_INDEX ] == false
+    return is_pushing_left_key() and is_not_pushing_previous 
+
+function is_pushed_up_key()
+    memory[ auto ] name is_not_pushing_previous = memory[ PREVIOUS_UP_KEY_INDEX ] == false
+    return is_pushing_up_key() and is_not_pushing_previous
+
+function is_pushed_right_key()
+    memory[ auto ] name is_not_pushing_previous = memory[ PREVIOUS_RIGHT_KEY_INDEX ] == false
+    return is_pushing_right_key() and is_not_pushing_previous
+
+function update_key_flags()
+    memory[ PREVIOUS_LEFT_KEY_INDEX ]  = is_pushing_left_key()
+    memory[ PREVIOUS_UP_KEY_INDEX ]    = is_pushing_up_key()
+    memory[ PREVIOUS_RIGHT_KEY_INDEX ] = is_pushing_right_key()
+
+function show_each_hands( memory[ auto ] name player_hand_type, memory[ auto ] name npc_hand_type )
+    show( "自分: " . get_hand_name( player_hand_type ) )
+    show( "相手: " . get_hand_name( npc_hand_type ) )
+
+function get_hand_name( memory[ auto ] name hand_type )
+    if hand_type == TYPE_ROCK
+        return "グー"
+    if hand_type == TYPE_SCISSCORS
+        return "チョキ"
+    if hand_type == TYPE_PAPER
+        return "パー"
+        
+    return ""
+
+function is_won_or_lost( memory[ auto ] name player_hand_type, memory[ auto ] name npc_hand_type )
+    return player_hand_type != npc_hand_type
+    
+function show_drawn()
+    show( "あいこです。もう一度キーを入力してください。" )
+
+function show_won_or_lost( memory[ auto ] name player_hand_type, memory[ auto ] name npc_hand_type )
+    if is_won( player_hand_type, npc_hand_type )
+        show( "勝ちました。" )
+        return
+    
+    show( "負けました。" )    
+
+function is_won( memory[ auto ] name player_hand_type, memory[ auto ] name npc_hand_type )
+    if player_hand_type == TYPE_ROCK      and npc_hand_type == TYPE_SCISSCORS
+        return true
+    if player_hand_type == TYPE_SCISSCORS and npc_hand_type == TYPE_PAPER
+        return true
+    if player_hand_type == TYPE_PAPER     and npc_hand_type == TYPE_ROCK
+        return true
+    
+    return false
+</code></pre>
+<h2>バブルソート</h2>
+<pre class="line-numbers"><code class="language-bg">memory[ auto ] name COUNT = 10
+
+function main()
+    set_default_values()
+    show_default_values()
+    
+    sort_in_ascending_order()
+    show_sorted_values()
+    
+function set_default_values()
+    memory[ 0 ] = 7
+    memory[ 1 ] = 2
+    memory[ 2 ] = 1
+    memory[ 3 ] = 5
+    memory[ 4 ] = 4
+    memory[ 5 ] = 9
+    memory[ 6 ] = 6
+    memory[ 7 ] = 3
+    memory[ 8 ] = 8
+    memory[ 9 ] = 0
+
+function show_default_values()
+    show( "【 ソート前 】" )
+    show_values()
+
+function show_sorted_values()
+    show( "【 ソート後 】" )
+    show_values()
+    
+function show_values()
+    memory[ auto ] name i = 0
+    
+    while i &lt; COUNT
+        show( "memory[ " . i . " ] = " . memory[ i ] )
+        i = i + 1
+
+function sort_in_ascending_order()
+    memory[ auto ] name i = 0
+    memory[ auto ] name j = 0
+    
+    while i &lt; COUNT
+        j = i + 1
+        
+        while j &lt; COUNT
+            swap_if_larger( i, j )
+            j = j + 1
+        
+        i = i + 1
+
+function swap_if_larger( memory[ auto ] name i, memory[ auto ] name j )
+    if memory[ i ] &lt;= memory[ j ]
+        return
+    
+    memory[ auto ] name temp = memory[ i ]
+    memory[ i ]              = memory[ j ]
+    memory[ j ]              = temp
+</code></pre>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

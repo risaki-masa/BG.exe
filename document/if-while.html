@@ -1,0 +1,83 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>分岐・繰り返し</title>
+        <meta name="description" content="分岐・繰り返しについて説明します。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                            <span class="text-color">分岐・繰り返し</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+                        <h2>分岐</h2>
+                        <p>分岐とは、条件が<code class="statement-code">true</code>である場合、ブロックを処理する構文である。</p>
+                        <p>分岐は下記の構文を記述する。この講文は関数内で使用できる。</p>
+                        
+<pre class="line-numbers"><code class="language-bg">if 条件
+    ブロック
+</code></pre>
+                        <p>指定した条件が<code class="statement-code">false</code>の場合、ブロックの次の行まで処理を飛ばす。</p>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ auto ] name value = 10
+    
+    if value &gt;= 10
+        show( "value は10以上です。" )
+    
+    if value &lt; 10
+        show( "value は10未満です。" )
+</code></pre> 
+                        <h2>繰り返し</h2>
+                        <p>繰り返しとは、条件が<code class="statement-code">true</code>である限り、ブロックを繰り返し処理する構文である。</p>
+                        <p>繰り返しは下記の構文を記述する。この講文は関数内で使用できる。</p>
+            
+<pre class="line-numbers"><code class="language-bg">while 条件
+    ブロック
+</code></pre>
+                        <p>繰り返しの実行は次のような手順となる。</p>
+                        <ol class="list-block">
+                            <li>条件が<code class="statement-code">false</code>の場合は繰り返しを終了する。( ブロックの次の行まで処理を飛ばす。 )</li>
+                            <li>繰り返しが続いている場合、ブロックを処理する。</li>
+                            <li>1に戻る。</li>
+                        </ol>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    memory[ auto ] name count = 0
+    
+    while count &lt; 10
+        show( "count = " . count )
+        count = count + 1
+</code></pre>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

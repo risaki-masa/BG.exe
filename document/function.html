@@ -1,0 +1,242 @@
+<html dir="ltr" lang="ja">
+    <head>
+        <title>関数</title>
+        <meta name="description" content="関数について説明します。">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" type="image/png" href="../assets/image/icon.png"/>
+        <link rel="apple-touch-icon" href="../assets/image/icon.png">
+
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/prism/prism.css">
+
+        <script type="text/javascript" src="../assets/js/common/extension/array-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/event-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-collection-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/html-textarea-element-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/number-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/string-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/extension/window-extensions.js"></script>
+        <script type="text/javascript" src="../assets/js/common/hover.js"></script>
+        <script type="text/javascript" src="../assets/js/common/polyfills.js"></script>
+        <script type="text/javascript" src="../assets/js/common/utilities.js"></script>
+        <script type="text/javascript" src="../assets/js/pc/element-extensions-pc.js"></script>
+        <script type="text/javascript" src="../assets/prism/prism.js"></script>
+    </head>
+    <body class="scroll">
+        <div id="wrap" class="flex">
+            <div id="main" role="main">
+                <article class="article">
+                    <section class="header">
+                        <h1 class="title">
+                            <span class="text-color">関数</span>
+                        </h1>
+                    </section>
+                    <section class="content">
+                        <p>関数とは、プログラムの一部に名前を付けたものである。</p>
+                        <h2>呼び出し</h2>
+                        <p>呼び出しとは、関数を実行することである。呼び出しは関数内でのみできる。</p>
+                        <p>関数を呼び出すと、その関数内の文を順に実行する。そして、呼び出した関数の処理が終了した時点で呼び出し元の関数に復帰する。</p>
+                        <p>呼び出しは仮引数の有無により記述の仕方が異なる。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>仮引数</th><th>記述</th><th>説明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>なし</td><td>名前()</td><td class="text-left">括弧内には何も記述しない。</td>
+                                </tr>
+                                <tr>
+                                <td>あり</td><td>名前( 実引数1, 実引数2… )</td><td class="text-left"><code class="statement-code">名前(&nbsp;&nbsp;)</code>の括弧内に、仮引数の数と順に合わせて<br>実引数をカンマ区切りで指定する。</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>呼び出しには、文としての呼び出しと、値としての呼び出しの2つが存在する。ただし、値として呼び出す場合には、その関数は戻り値を返さなければならない。</p>
+                        <h2>引数</h2>
+                        <p>引数とは、実引数と仮引数の総称である。</p>
+                        <h3>実引数</h3>
+                        <p>実引数とは、関数を呼び出す時に渡す値である。</p>
+                        <p>実引数は関数を呼び出す時にその関数の仮引数の数だけ指定しなければならない。また、実引数は式として扱われる。</p>
+                        <h3>仮引数</h3>
+                        <p>仮引数とは、関数へ渡された実引数を格納するメモリ、または作成する変数である。</p>
+                        <p>仮引数は関数を作成する時に指定できる。</p>
+                        <h2>戻り値</h2>
+                        <p>戻り値とは、関数の呼び出し元へ返す値である。</p>
+                        <p>戻り値を返す場合、その関数は値として呼び出すことができる。</p>
+                        <h2>種類</h2>
+                        <h3>組み込み関数</h3>
+                        <p>組み込み関数とは、言語の仕様として作成済みの関数である。</p>
+                        <div class="table-block scroll">
+                            <table class="scroll-table">
+                                <thead>
+                                <tr>
+                                <th>名前</th><th>引数</th><th>戻り値</th><th>説明</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <td>show</td><td>表示する値</td><td>なし</td><td class="text-left">末尾に改行を挿入して、値を表示する。</td>
+                                </tr>
+                                <tr>
+                                <td>clear</td><td>なし</td><td>なし</td><td class="text-left">出力した値を全て削除する。</td>
+                                </tr>
+                                <tr>
+                                <td>wait</td><td>待機する時間<br>( 整数値のみ指定可。単位はミリ秒。 )</td><td>なし</td><td class="text-left">プログラムを待機する。<br>待機中は入力を受け付ける。<br>※ この関数はエントリポイントでのみ使用できる。</td>
+                                </tr>
+                                <tr>
+                                <td>is_pushing_up_key</td><td>なし</td><td>上キーを押しているか判断する値</td><td class="text-left">上キーを押している場合は<code class="statement-code">true</code>を返し、<br>押していない場合は<code class="statement-code">false</code>を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>is_pushing_down_key</td><td>なし</td><td>下キーを押しているか判断する値</td><td class="text-left">下キーを押している場合は<code class="statement-code">true</code>を返し、<br>押していない場合は<code class="statement-code">false</code>を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>is_pushing_left_key</td><td>なし</td><td>左キーを押しているか判断する値</td><td class="text-left">左キーを押している場合は<code class="statement-code">true</code>を返し、<br>押していない場合は<code class="statement-code">false</code>を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>is_pushing_right_key</td><td>なし</td><td>右キーを押しているか判断する値</td><td class="text-left">右キーを押している場合は<code class="statement-code">true</code>を返し、<br>押していない場合は<code class="statement-code">false</code>を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>is_clicking</td><td>なし</td><td>クリックしているか判断する値</td><td class="text-left">マウスをクリックしている場合は<code class="statement-code">true</code>を返し、<br>クリックしていない場合は<code class="statement-code">false</code>を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>is_touching</td><td>なし</td><td>タッチしているか判断する値</td><td class="text-left">画面をタッチしている場合は<code class="statement-code">true</code>を返し、<br>タッチしていない場合は<code class="statement-code">false</code>を返す。<br>( 画面をタッチして<code class="statement-code">true</code>になるのはタッチデバイスのみ。 )</td>
+                                </tr>
+                                </tbody>
+                                <tbody><tr>
+                                <td>get_hours</td><td>なし</td><td>時</td><td class="text-left">現在の時刻の「時」を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>get_minutes</td><td>なし</td><td>分</td><td class="text-left">現在の時刻の「分」を返す。</td>
+                                </tr>
+                                <tr>
+                                <td>get_seconds</td><td>なし</td><td>秒</td><td class="text-left">現在の時刻の「秒」を返す。</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    // 1. Hello world を表示
+    // 2. 1秒( 1000ms )待機
+    // 3. 出力した値を削除
+    // 4. 入力中の情報を表示
+    show( "Hello world." )
+    
+    wait( 1000 )
+    clear()
+    
+    if is_pushing_up_key()
+        show( "Up key." )
+    
+    if is_pushing_down_key()
+        show( "Down key." )
+    
+    if is_pushing_left_key()
+        show( "Left key." )
+    
+    if is_pushing_right_key()
+        show( "Right key." )
+    
+    if is_clicking()
+        show( "Click." )
+    
+    if is_touching()
+        show( "Touch." )
+</code></pre>
+                            <h3>自作関数</h3>
+                            <p>自作関数とは、自身で作成した関数である。</p>
+                            <h4>作成</h4>
+                            <p>作成するには、下記のいずれかの構文を記述する。この構文は関数外で使用できる。</p>
+                            <p class="prism-title">仮引数を指定しない場合</p>
+<pre class="line-numbers"><code class="language-bg">function 名前()
+    ブロック
+</code></pre>
+                            <p class="prism-title">仮引数を指定する場合</p>
+<pre class="line-numbers"><code class="language-bg">function 名前( 仮引数1, 仮引数2… )
+    ブロック
+</code></pre>
+                            <p>名前には半角の小文字英字( a-z )、またはアンダースコア( _ )が使用できる。</p>
+                            <h4>仮引数</h4>
+                            <p>仮引数は、作成する時の<code class="statement-code">function 名前(  )</code>の文の括弧内にメモリ、または変数を指定する。</p>
+                            <p>	指定する時の記述は下記の通りである。</p>
+            
+                            <div class="table-block scroll">
+                                <table class="scroll-table">
+                                    <thead>
+                                        <tr>
+                                            <th>仮引数</th><th>記述</th><th>呼び出し時</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>メモリ</td><td class="text-left">memory[ 番号 ]</td><td class="text-left">○番のメモリに実引数が格納される。</td>
+                                        </tr>
+                                        <tr>
+                                            <td>変数</td><td class="text-left">memory[ 番号 ] name 名前</td><td class="text-left">○番のメモリに実引数が格納され、指定した名前の変数が作成される。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>また、仮引数を複数指定する場合は、カンマで区切る。</p>
+                            <p class="prism-title">例</p>
+            
+<pre class="line-numbers"><code class="language-bg">function main()
+    show_arugments( 100, "value" )
+    
+function show_arugments( memory[ 0 ], memory[ auto ] name value )
+    show( memory[ 0 ] )
+    show( value )
+</code></pre>
+                            <h4>戻り値</h4>
+                            <p>戻り値を返すには、下記の文を記述する。値は式として扱われる。</p>
+                            <div class="code-toolbar"><pre class="line-numbers language-bg"><code class=" language-bg">return 値<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div>
+                            <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show( get_one_hundred() )
+
+function get_one_hundred()
+    return 100
+</code></pre>
+                            <h4>終了</h4>
+                            <p>関数は最後の文まで処理した時、または戻り値を返した時に終了する。</p>
+                            <p>ただし、戻り値を返却せずに関数を終了したい場合、<code class="statement-code">return</code>の値に何も指定しないことでできる。</p>
+                            <p class="prism-title">例</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    show_a_or_b( true )
+    show_a_or_b( false )
+    
+    show( get_one_hundred() )
+
+function get_one_hundred()
+    // ↓ の戻り値を返した時点で関数が終了する。そのため、呼び出しても"show"は表示されない。
+    return 100
+    show( "show" )
+
+function show_a_or_b( memory[ auto ] name is_a )
+    if is_a
+        show( "a" )
+        // ↓ で戻り値を返さず関数を終了する。
+        return
+    
+    show( "b" )
+</code></pre>
+                            <h2>エントリポイント</h2>
+                            <p>エントリポイントとは、プログラム実行時に呼ばれる関数である。</p>
+                            <p>エントリポイントは<code class="statement-code">main</code>と名付けなければならない。また、引数と戻り値は不要である。</p>
+<pre class="line-numbers"><code class="language-bg">function main()
+    // ブロック
+</code></pre>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </body>
+</html>

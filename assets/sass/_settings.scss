@@ -1,0 +1,61 @@
+$DEFAULT_FONT_SIZE      : 10px;
+$DEFAULT_FONT_FAMILY    :
+    'Lucida Grande',
+    'Arial',
+    'ヒラギノ角ゴシック',
+    'Hiragino Sans',
+    YuGothic,
+    'Yu Gothic',
+    'メイリオ',
+    Meiryo,
+    sans-serif
+;
+$DEFAULT_LINE_HEIGHT        : 1.6;
+$LEFT_SIDE_BACKGROUND_COLOR : #D4E1F5;
+$RIGHT_SIDE_BACKGROUND_COLOR: #FBFBFB;
+$CONTENT_BACKGROUND_COLOR   : $RIGHT_SIDE_BACKGROUND_COLOR;
+$TEXT_COLOR                 : #333;
+$LINK_COLOR                 : #5385cf;
+$HEADING_SIZES              : ( 2.4, 2.1, 1.8, 1.6, );
+$TABLE_BORDER_COLOR         : #999;
+$TABLE_HEADING_COLOR        : #ddd;
+$TABLE_DATA_COLOR           : #fff;
+
+$SITE_MIN_WIDTH         : 300px;
+$RIGHT_SIDE_MAX_WIDTH   : 280px;
+$CONTENT_MAX_WIDTH      : 1000px;
+
+$THEME_BACKGROUND_COLOR_1   : #999;
+$THEME_TEXT_COLOR_1         : #fff;
+$THEME_BACKGROUND_COLOR_2   : #7EA6E0;
+$THEME_TEXT_COLOR_2         : #fff;
+$HOVER_PART_BACKGROUND_COLOR: #ddd;
+$HOVER_PART_TEXT_COLOR      : #666;
+$CURRENT_BACKGROUND_COLOR   : #C6F4C3;
+$CURRENT_TEXT_COLOR         : $HOVER_PART_TEXT_COLOR;
+$HOVER_TEXT_COLOR           : #ddd;
+$BORDER_COLOR               : $HOVER_PART_BACKGROUND_COLOR;
+$HOVER_BORDER_COLOR         : $CURRENT_BACKGROUND_COLOR;
+
+$HEADER_HEIGHT              : 70px;
+$HEADER_LOGO_COLOR          : #fff;
+
+$FOOTER_HEIGHT              : 40px;
+
+$Z_INDEX_LIST               : (
+    error-404-icon-shadow   : 1,
+    error-404-icon-inner    : 2,
+    bg-input-area           : 1,
+    bg-input-view           : 1,
+    bg-help                 : 10,
+    bg-help-items           : 11,
+);
+
+$BREAKPOINT_LIST : (
+    tablet  : "screen and (max-width: 949px)",
+    phone   : "screen and (max-width: 599px)",
+);
+
+$PAGE_TOP_BUTTON_HEIGHT : 40px;
+$SIDE_PART_WIDTH        : 250px;
+$CLOSE_AREA_COLOR       : #363b3f;

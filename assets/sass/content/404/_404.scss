@@ -1,0 +1,110 @@
+.error-404 {
+    padding         : 30px 80px;
+    flex-direction  : column;
+
+    @include media_as_phone {
+        padding: 30px 20px;
+    }
+
+    > .header {
+        @mixin icon_design( $width, $height ) {
+            @include width_and_height( $width, $height );
+            background-color: #fff;
+            border          : solid 2px #c0c0c0;
+            border-radius   : 5px;
+        }
+
+        > .icon {
+            position: relative;
+            @include icon_design( 280px, 80px );
+
+            @include media_as_phone {
+                @include width_and_height( 140px, 70px );
+            }
+
+            .shadow {
+                @include width_and_height( 0, 0 );
+                @include upper_left;
+                position: absolute;
+                border  : {
+                    style   : solid;
+                    width   : 38px 138px;
+                    color   : transparent #ccc #ccc transparent;
+                    radius  : 3px;
+                }
+
+                @include z_index( error-404-icon-shadow );
+
+                @include media_as_phone {
+                    border-width: 33px 68px;
+                }
+            }
+
+            .inner {
+                @include icon_design( 234px, 64px );
+                @include top_and_left( 7px, 23px );
+                position    : absolute;
+                color       : $THEME_BACKGROUND_COLOR_2;
+                @include bold_font( 2.5rem );
+                @include z_index( error-404-icon-inner );
+
+                &::before {
+                    content: "404 Not Found";
+
+                    @include media_as_phone {
+                        content: "404";
+                    }
+                }
+
+                @include media_as_phone {
+                    @include width_and_height( 114px, 54px );
+                    @include top_and_left( 7px, 13px );
+                }
+            }
+        }
+
+        .title {
+            padding-top: 20px;
+            
+            @include media_as_phone {
+                font-size: 1.7rem;
+            }            
+        }
+    }
+
+    > .content {
+        width       : 100%;
+        font-size   : 1.6rem;
+
+        @include media_as_phone {
+            font-size: 1.2rem;
+        }
+
+        .title {
+            @include margin_and_padding( 30px 0,  7px 0 7px 20px );
+            background-color: $HEADING_BACKGROUND_COLOR;
+            border-left     : solid 5px $HEADING_BORDER_COLOR_1;
+            font-size       : 2.0rem;
+
+            @include media_as_phone {
+                font-size: 1.5rem;
+            }
+        }
+
+        .list {
+            margin-top: 20px;
+
+            li {
+                @include indent_after_new_line( 1.5em );
+            }
+        }
+
+        > .cause {
+            > .content {
+                padding: 0 20px;
+            }
+        }
+    }
+
+    
+}

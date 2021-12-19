@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    @include margin_and_padding( 0, 0 );
+}
+
+html {
+    font-size: $DEFAULT_FONT_SIZE;
+    @include size( 100% );
+
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family : $DEFAULT_FONT_FAMILY;
+    line-height : $DEFAULT_LINE_HEIGHT;
+    color       : $TEXT_COLOR;
+
+    @include size( inherit );
+}
+
+%list {
+    list-style-position : inside;
+    line-height         : 1.8;
+}
+
+ul {
+    list-style-type: disc;
+
+    @extend %list;
+
+    > ul {
+        padding-left    : 28px;
+        list-style-type : circle;
+    }
+}
+
+ol {
+    @extend %list;
+}
+
+a {
+    color           : $LINK_COLOR;
+    text-decoration : none;
+    outline         : none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+// h1~…h*
+@each $size in $HEADING_SIZES {
+    $index: index( $HEADING_SIZES, $size );
+    
+    h#{$index} {
+        font-size   : #{$size}rem;
+        font-weight : bold;
+    }
+}
+
+p {
+    word-break : break-all;
+}
+
+input {
+    border-radius       : 0;
+    -webkit-appearance  : none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+%table_row {
+    padding     : 2px 10px;
+    border      : solid 2px $TABLE_BORDER_COLOR;
+    font-size   : 1.4rem;
+
+    @include media_as_phone {
+        padding  : 2px 8px;
+        font-size: 1.2rem;
+    }
+}
+
+th {
+    background-color: $TABLE_HEADING_COLOR;
+
+    @extend %table_row;
+}
+
+td {
+    background-color: $TABLE_DATA_COLOR;
+    text-align      : center;
+
+    @extend %table_row;
+}

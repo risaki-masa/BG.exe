@@ -1,0 +1,371 @@
+.content {
+    padding-top     : 20px;
+    font-size       : 1.6rem;
+    counter-reset   : note-mark-count note-item-count;
+
+    @include media_as_phone {
+        padding-top : 10px;
+        font-size   : 1.3rem;
+    }
+
+    @mixin next_element_margin {
+        margin-top: 20px;
+
+        @include media_as_phone {
+            margin-top: 10px;
+        }
+    }
+
+    > {
+        h2 {
+            background-color: $HEADING_BACKGROUND_COLOR;
+            @include margin_and_padding( 30px 0, 7px 0 7px 20px );
+            @include heading_border( 5px, 3px );
+    
+            @include media_as_phone {
+                font-size: 1.8rem;
+                @include margin_and_padding( 20px 0, 6px 0 6px 18px );
+                @include heading_border( 4px, 2px );
+            }
+        }
+
+        h3 {
+            border-left: solid 5px $HEADING_BORDER_COLOR_1;
+            @include margin_and_padding( 30px 15px, 5px 0 5px 10px );
+
+            @include media_as_phone {
+                border-left : solid 4px $HEADING_BORDER_COLOR_1;
+                font-size   : 1.6rem;
+                @include margin_and_padding( 20px 15px, 4px 0 4px 8px );
+            }        
+        }
+
+        h4 {
+            margin: 30px;
+
+            @include media_as_phone {
+                margin      : 20px;
+                font-size   : 1.4rem;
+            }
+
+            &::before {
+                padding-right   : 10px;
+                color           : $HEADING_BORDER_COLOR_1;
+                @include font_awesome( f152 );
+
+                @include media_as_phone {
+                    padding-right: 8px;
+                }
+            }
+        }
+
+        p {
+            margin: 10px 30px;
+    
+            @include media_as_phone {
+                margin: 10px 20px;
+            }
+
+            
+        }
+
+        @mixin list_margin {
+            margin: 20px 30px 0px 30px;
+
+            + p {
+                @include next_element_margin;
+            }
+            
+            + div {
+                @include next_element_margin;
+            }
+        }
+
+        ul {
+            @include list_margin;
+
+            &.note-list {
+                margin      : 5px 50px 0px 50px;
+                font-size   : 1.1rem;
+
+                @include media_as_phone {
+                    margin      : 5px 35px 0px 35px;
+                    font-size   : 1.0rem;
+                }
+            }
+
+            @include media_as_phone {
+                margin: 10px 20px;
+            }
+        }
+
+        p {
+            + ul.note-list {
+                margin: 20px 50px 0px 50px;
+
+                @include media_as_phone {
+                    margin: 15px 35px 0px 35px;
+                }
+            }
+        }
+
+        ol {
+            @include list_margin;
+        }
+
+        .tag-list-block {
+            @include list_margin;
+        }
+    }
+
+    .table-block {
+        margin: 30px;
+
+        + p {
+            @include next_element_margin;
+        }
+        
+        + div {
+            @include next_element_margin;
+        }
+
+        @include media_as_phone {
+            margin: 20px;
+        }
+    }
+
+    .normal-table {
+        &.center {
+            margin: 0 auto;
+        }
+    }
+
+    .scroll-table {
+        white-space: nowrap;
+
+        &.center {
+            margin: 0 auto;
+        }
+    }
+
+    .fixed-table {
+        table-layout: fixed;
+        width       : 100%;
+    }
+
+    %image {
+        @include width_and_height( 100%, auto );
+    }
+
+    .thumbnail {
+        max-width   : 800px;
+        margin      : 0 auto 30px auto;
+        border-width: 6px;
+
+        @include media_as_phone {
+            margin: 0 15px 10px 15px;
+        }
+
+        img {
+            @extend %image;
+        }
+    }
+
+    .statement-code {
+        padding         : 0 5px;
+        background-color: #e6e6e5;
+        font-family     : 'Consolas', 'Courier New', 'Courier', monospace;
+    }
+
+    .code-toolbar {
+        margin: 20px 30px;
+
+        @include media_as_phone {
+            margin: 20px;
+        }
+    }
+
+    .prism-title {
+        margin-top      : 20px;
+        margin-bottom   : 0;
+        padding         : 2px 0; 
+
+        @include normal_font( 1.3rem, center );
+
+        @include text_and_background_colors( 
+            $THEME_TEXT_COLOR_1, 
+            $THEME_BACKGROUND_COLOR_1 
+        );
+
+        + .code-toolbar {
+            margin-top: 0;
+        }
+    }
+
+    .note-mark {
+        &::after {
+            content             : "※"counter( note-mark-count );
+            counter-increment   : note-mark-count;
+            font-size           : 1.0rem;
+            vertical-align      : top;
+        }
+    }
+
+    .note-item {
+        @include indent_after_new_line( 1.8em );
+
+        &::before {
+            content             : "※"counter( note-item-count )" ";
+            counter-increment   : note-item-count;
+        }
+    }
+
+    .insertion {
+        margin: 30px;
+
+        @include media_as_phone {
+            margin: 15px;
+        }
+
+        .image {
+            position: relative;
+
+            img {
+                border: solid 1px #999;
+                @extend %image;
+            }
+
+            .tag {
+                padding : 0 20px;
+                position: absolute;
+                border  : solid 2px #ccc;
+    
+                @include text_and_background_colors(
+                    $THEME_TEXT_COLOR_1,
+                    $THEME_BACKGROUND_COLOR_1
+                );
+    
+                @include bold_font( 1.5rem );
+                @include top_and_left( 10px, 20px );
+    
+                @include media_as_phone {
+                    padding : 0 15px;
+                    left    : 15px;
+    
+                    @include bold_font( 1.3rem );
+                }
+            }
+        }
+    }
+
+    .card {
+        margin: 30px;
+
+        @include media_as_phone {
+            margin: 15px 20px;
+        }
+
+        .link {
+            border-width: 5px;
+            @include max_width_and_width_100percent( 550px );
+    
+            .thumbnail {
+                height          : 100px;
+                margin          : 0;
+                background-color: $THEME_BACKGROUND_COLOR_2;
+
+                @include bold_font( 1.5rem );
+                @include max_width_and_width_100percent( 100px );
+            }
+    
+            .title {
+                height          : 100px;
+                padding         : 0 10px; 
+                background-color: #fff;
+                flex            : auto;
+                @include bold_font( 1.6rem );
+
+                @include media_as_phone {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+
+    .social-share {
+        .items {
+            margin-top  : 30px;
+            font-size   : 1.4rem;
+
+            @include media_as_phone {
+                margin-top  : 20px;
+            }
+
+            li {
+                flex: auto;
+
+                &:not(:last-child) {
+                    padding-right: 10px;
+                }
+            }
+
+            .item {
+                padding     : 8px 0;
+                text-align  : center;
+
+                .text {
+                    padding-left: 0.5em;
+                    font-weight : bold;
+
+                    @include media_as_phone {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .post-collection {
+        margin          : 0px 30px; 
+        flex-wrap       : wrap;
+        justify-content : space-between;
+        counter-reset   : tutorial-post-count;
+
+        .post {
+            margin-bottom   : 10px;
+            flex            : 0 0 49%;
+            position        : relative;
+            
+
+            @include media_as_tablet {
+                flex: 1 1 100%;
+            }
+
+            &::before {
+                counter-increment   : tutorial-post-count; 
+                content             : counter( tutorial-post-count );
+                padding             : 0 10px;
+                position            : absolute;
+                pointer-events      : none;
+                
+                @include top_and_left( 5px, 10px );
+                @include bold_font( 1.3rem );
+                @include text_and_background_colors( $THEME_TEXT_COLOR_1, $THEME_BACKGROUND_COLOR_1 );
+            }
+
+            .inner {
+                border-width: 5px;
+
+                .text {
+                    padding-left: 5px;
+                    line-height : 1.6rem;
+                    color       : #666;
+
+                    @include bold_font( 1.3rem );
+                }
+            }
+        }
+    }
+
+    @import "speech";
+}

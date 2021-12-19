@@ -1,0 +1,113 @@
+@mixin flex_settings(
+    $justify_content: null,
+    $align_items    : null,
+    $align_content  : null,
+    $direction      : null
+) {
+    justify-content : $justify_content;
+    align-items     : $align_items;
+    align-content   : $align_content;
+    flex-direction  : $direction;
+}
+
+@mixin z_index( $name ) {
+    z-index: map-get( $Z_INDEX_LIST, $name );
+}
+
+@mixin media( $name ) {
+    @media #{ map-get( $BREAKPOINT_LIST, $name ) } {
+        @content;
+    }
+}
+
+@mixin media_as_phone {
+    @include media( phone ) {
+        @content;
+    }
+}
+
+@mixin media_as_tablet {
+    @include media( tablet ) {
+        @content;
+    }
+}
+
+@mixin size( $size ) {
+    width   : $size;
+    height  : $size;
+}
+
+@mixin width_and_height( $width, $height ) {
+    width   : $width;
+    height  : $height;
+}
+
+@mixin max_and_min_width( $max, $min ) {
+    max-width: $max;
+    min-width: $min;
+}
+
+@mixin max_width_and_width_100percent( $max_width ) {
+    max-width   : $max_width;
+    width       : 100%;
+}
+
+@mixin top_and_left( $top, $left ) {
+    top : $top;
+    left: $left;
+}
+
+@mixin top_and_right( $top, $right ) {
+    top     : $top;
+    right   : $right;
+}
+
+@mixin upper_left {
+    @include top_and_left( 0, 0 );
+}
+
+@mixin normal_font( $size, $align: null ) {
+    font-size   : $size;
+    text-align  : $align;
+    font-weight : normal;
+}
+
+@mixin bold_font( $size, $align: null, $family: null ) {
+    font-size   : $size;
+    font-weight : bold;
+    font-family : $family;
+    text-align  : $align;
+}
+
+@mixin width_and_margin_auto( $width ) {
+    width   : $width;
+    margin  : auto;
+}
+
+@mixin margin_and_padding( $margin, $padding ) {
+    margin  : $margin;
+    padding : $padding;
+}
+
+@mixin font_awesome( $content ) {
+    $content        : str-insert( $content, "\\", 1 );
+    $quoted_content : unquote("\"") + $content + unquote("\"");
+
+    content     : $quoted_content;
+    font-family : "Font Awesome\ 5 Free";
+}
+
+@mixin indent_after_new_line( $indent ) {
+    text-indent : -$indent;
+    padding-left: $indent;
+}
+
+@mixin text_and_background_colors( $text, $background ) {
+    color           : $text;
+    background-color: $background;
+}
+
+@mixin background_color_and_border( $color, $border ) {
+    background-color: $color;
+    border          : $border;
+}

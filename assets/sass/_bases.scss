@@ -1,0 +1,15 @@
+#wrap {
+    height      : inherit;
+    margin      : auto;
+    min-width   : $SITE_MIN_WIDTH;
+}
+
+#left-side {
+    flex            : auto;
+    height          : inherit;
+
+    @include media_as_tablet {
+        margin: 0;
+    }
+}
+

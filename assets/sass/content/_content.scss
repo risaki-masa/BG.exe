@@ -1,0 +1,27 @@
+#main {
+    $HEADING_BORDER_COLOR_1     : $THEME_BACKGROUND_COLOR_2;
+    $HEADING_BORDER_COLOR_2     : #ccc;
+    $HEADING_BACKGROUND_COLOR   : #eee;
+
+    margin          : 0 auto;
+
+    @include max_width_and_width_100percent( $CONTENT_MAX_WIDTH );
+
+    @mixin title_border( $left_and_right_width, $top_and_bottom_width ) {
+        border: {
+            style: solid;
+            width: $top_and_bottom_width $left_and_right_width;
+            color: $HEADING_BORDER_COLOR_2 $HEADING_BORDER_COLOR_1;
+        }
+    }
+
+    @mixin heading_border( $left_width, $bottom_width ) {
+        border: {
+            left    : solid $left_width $HEADING_BORDER_COLOR_1;
+            bottom  : solid $bottom_width $HEADING_BORDER_COLOR_2;
+        }
+    }
+
+    min-height: calc(100% - #{$HEADER_HEIGHT + $FOOTER_HEIGHT});
+    @import "article/article", "404/404";
+}

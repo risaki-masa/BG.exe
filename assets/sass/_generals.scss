@@ -1,0 +1,215 @@
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-h-center {
+    @extend .flex;
+    @include flex_settings( center );
+}
+
+.flex-v-center {
+    @extend .flex;
+    @include flex_settings( null, center );
+}
+
+.flex-column-v-center {
+    @extend .flex;
+    @include flex_settings( null, center, null, column );
+}
+
+.flex-center {
+    @extend .flex;
+    @include flex_settings( center, center );
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.list-none {
+    list-style: none;
+}
+
+.theme-color1 {
+    @include text_and_background_colors( 
+        $THEME_TEXT_COLOR_1,
+        $THEME_BACKGROUND_COLOR_1
+    );
+}
+
+.theme-color2 {
+    @include text_and_background_colors( 
+        $THEME_TEXT_COLOR_2,
+        $THEME_BACKGROUND_COLOR_2
+    );
+}
+
+.text-color {
+    color: $TEXT_COLOR;
+}
+
+// .hover-part が付いている要素がホバーした際の色
+.hover-part-color {
+    @include text_and_background_colors( 
+        $HOVER_PART_TEXT_COLOR,
+        $HOVER_PART_BACKGROUND_COLOR
+    );
+}
+
+.current-color {
+    @include text_and_background_colors( 
+        $CURRENT_TEXT_COLOR,
+        $CURRENT_BACKGROUND_COLOR
+    );
+}
+
+.hover-text-color {
+    color: $HOVER_TEXT_COLOR;
+}
+
+// .hover-text-line が付いている要素がホバーした際の下線
+.hover-text-underline {
+    text-decoration: underline;
+}
+
+.hover-border {
+    border: $BORDER_COLOR solid;
+}
+
+// .hover-border が付いている要素がホバーした際の枠の色
+.hover-border-color {
+    border: $HOVER_BORDER_COLOR solid;
+}
+
+.hidden {
+    display: none;
+}
+
+@mixin scroll_design {
+    &::-webkit-scrollbar {
+        @include size( 6px );
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius   : 10px;
+        box-shadow      : inset 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius   : 10px;
+        box-shadow      : none;
+    }
+}
+
+.scroll {
+    overflow                    : auto;
+    -webkit-overflow-scrolling  : touch;
+    @include scroll_design;
+}
+
+.hatena-bookmark-icon::before {
+    content     : "B!";
+    font-family : Verdana;
+}
+
+$LIST_BLOCK_BACKGROUND_COLOR: #fff;
+$LIST_BLOCK_BORDER_COLOR    : #ccc;
+$LIST_BLOCK_BORDER_WIDTH    : 2px;
+
+@mixin list_block_common {
+    @include background_color_and_border(
+        $LIST_BLOCK_BACKGROUND_COLOR, 
+        solid $LIST_BLOCK_BORDER_WIDTH $LIST_BLOCK_BORDER_COLOR 
+    );
+}
+
+@mixin list_block_padding( $top_offset: 0px, $top_offset_as_phone: 0px ) {
+    padding: ( $top_offset + 20px ) 40px 20px 40px;
+
+    @include media_as_phone {
+        padding: ( $top_offset_as_phone + 15px ) 30px 15px 30px;
+    }
+}
+
+.list-block {
+    @include list_block_padding;
+    @include list_block_common;
+
+    > li {
+        @include indent_after_new_line( 1.5em );
+    }
+}
+
+.tag-list-block {
+    $tag_height         : 34px;
+    $tag_height_as_phone: 28px;
+
+    position: relative;
+
+    > div {
+        height  : $tag_height;
+        padding : 0 20px;
+        position: absolute;
+        border  : solid $LIST_BLOCK_BORDER_WIDTH $LIST_BLOCK_BORDER_COLOR;
+        @include top_and_left( 0, 20px );
+        @include text_and_background_colors(
+            $THEME_TEXT_COLOR_1,
+            $THEME_BACKGROUND_COLOR_1
+        );
+        @include bold_font( 1.5rem );
+
+        @include media_as_phone {
+            height  : $tag_height_as_phone;
+            padding : 0 15px;
+            left    : 15px;
+            @include bold_font( 1.3rem );
+        }
+    }
+
+    %list {
+        @include list_block_padding(
+            ( $tag_height - $LIST_BLOCK_BORDER_WIDTH ),
+            ( $tag_height_as_phone - $LIST_BLOCK_BORDER_WIDTH )
+        );
+        
+        @include list_block_common;
+    }
+
+    > ul {
+        @extend %list;
+
+        > li {
+            @include indent_after_new_line( 1.5em );
+        }
+    }
+
+    > ol {
+        @extend %list;
+
+        > li {
+            @include indent_after_new_line( 1.1em );
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.no-image {
+    @include text_and_background_colors( #F7FAFC, #999 );
+}
+
